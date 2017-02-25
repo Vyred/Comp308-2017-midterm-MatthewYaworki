@@ -1,16 +1,33 @@
+
+
+
 <!DOCTYPE html>
+<!--
+MidTerm
+Matthew Yaworski 300804964
+https://comp308w2017-300804964-midterm.herokuapp.com/books
+
+edits:
+passport/authorization
+login/logout/register
+-->
+
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><%= title %></title>
-    <!-- CSS SECTION -->
-    <link rel="stylesheet" href="/Scripts/lib/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/Scripts/lib/bootstrap/dist/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="/Scripts/lib/font-awesome/css/font-awesome.min.css">
-    <link rel='stylesheet' href='/Content/app.css' />
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    <%= title %>
+  </title>
+  <!-- CSS SECTION -->
+  <link rel="stylesheet" href="/Scripts/lib/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/Scripts/lib/bootstrap/dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/Scripts/lib/font-awesome/css/font-awesome.min.css">
+  <link rel='stylesheet' href='/Content/app.css' />
+</head>
+
+<body>
 
   <nav class="navbar navbar-inverse" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -29,18 +46,26 @@
       <ul class="nav navbar-nav navbar-right">
         <% if(title == "Home") { %>
           <li class="active"><a href="/"><i class="fa fa-home fa-lg"></i> Home</a></li>
-        <% } else { %>
-          <li><a href="/"><i class="fa fa-home fa-lg"></i> Home</a></li>
-        <% } %>
-
-          <% if(title == "books") { %>
-          <li class="active"><a href="/books"><i class="fa fa-book fa-lg">
-          </i> Books List</a></li>
           <% } else { %>
-            <li><a href="/books"><i class="fa fa-book fa-lg">
-            </i> Books List</a></li>
-          <% } %>
+            <li><a href="/"><i class="fa fa-home fa-lg"></i> Home</a></li>
+            <% } %>
 
+              <% if(title == "books") { %>
+                <li class="active"><a href="/books"><i class="fa fa-book fa-lg">
+          </i> Books List</a></li>
+                <% } else { %>
+                  <li><a href="/books"><i class="fa fa-book fa-lg">
+            </i> Books List</a></li>
+                  <% } %>
+
+<!--Added ejs to nav bar in order to display login/register or logout -->
+        <% if(typeof displayName == 'string' && displayName) { %>
+          <li class="navbar-text"><i class="fa fa-user"></i> Welcome, <%= displayName %></li>
+          <li><a href="/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+        <% } else { %>
+          <li><a href="/login"><i class="fa fa-sign-in"></i> Login</a></li>
+        <% } %>
       </ul>
-    </div><!-- /.navbar-collapse -->
+    </div>
+    <!-- /.navbar-collapse -->
   </nav>
