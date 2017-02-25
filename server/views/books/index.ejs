@@ -1,12 +1,23 @@
 <% include ../partials/header.ejs %>
 
+
+<!--
+  Matthew Yaworski 300804964
+  Feb 25 2017
+  Lab Test 1
+  Edits:
+  -add button
+  -edit buttons
+  -delete buttons
+  ->
+
     <!-- MAIN CONTENT -->
     <div class="container">
       <div class="row">
         <div class="col-md-offset-1 col-md-10">
           <h3>Favourite Books List </h3>
           <!-- ------------------------ -->
-          <!-- FIX THE ADD BUTTON BELOW -->
+          <!-- FIXed THE ADD BUTTON BELOW -->
           <!-- ------------------------ -->
           <a class="btn btn-primary" href="/books/add"><i class="fa fa-plus"></i> Add a Book</a>
           <br>
@@ -14,12 +25,12 @@
             <table class="table table-bordered table-striped table-hover">
               <thead>
                 <tr>
-                  <th>Title</th>
+                  <th class="text-center">Title</th>
                   <th class="text-center">Price</th>
                   <th class="text-center">Author</th>
                   <th class="text-center">Genre</th>
-                  <th class="text-center"></th>
-                  <th class="text-center"></th>
+                  <th class="text-center">Edit</th>
+                  <th class="text-center">Delete</th>
                 </tr>
                 </thead>
                 <tbody id="myTable">
@@ -29,18 +40,13 @@
                   <td><%= books[count].Title %></td>
                   <td class="text-center">$<%= books[count].Price %></td>
                   <td class="text-center"><%= books[count].Author %></td>
-                  <td class="text-center"><%= books[count].Genre %></td>
-
+                  <td class="text-center"><%= books[count].Genre %></td>             
                   <td class="text-center">
-                    <!-- ------------------------ -->
-                    <!-- ADD the EDIT BUTTON HERE -->
-                    <!-- ------------------------ -->
+                    <a class="btn btn-primary" href="/books/<%= books[count]._id %>" role="button"><i class="fa fa-pencil-square-o"></i> Edit</a>
                   </td>
 
                   <td class="text-center">
-                    <!-- ------------------------ -->
-                    <!-- ADD the DELETE BUTTON HERE -->
-                    <!-- ------------------------ -->
+                     <a class="btn btn-danger" href="/books/delete/<%= books[count]._id %>" role="button"><i class="fa fa-trash-o"></i> Delete</a>
                   </td>
                 </tr>
                 <% } %>

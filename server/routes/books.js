@@ -34,11 +34,11 @@ router.get('/add', (req, res, next) => {
 // POST process the Book Details page and create a new Book - CREATE
 router.post('/add', (req, res, next) => {
      book.create({
-      "title": req.body.title,
-      "description": req.body.description,
-      "price": req.body.price,
-      "author": req.body.author,
-      "genre" : req.body.genre
+      "Title": req.body.title,
+      "Description": req.body.description,
+      "Price": req.body.price,
+      "Author": req.body.author,
+      "Genre" : req.body.genre
 
     }, (err, book) => {
       if(err) {
@@ -84,11 +84,11 @@ router.post('/:id', (req, res, next) => {
   // create a new games object to hold the changes
   let books = new book({
     "_id": id,
-    "title": req.body.title,
-    "description" : req.body.description,
-    "price": req.body.price,
-    "author": req.body.author,
-    "genre" : req.body.genre
+    "Title": req.body.title,
+    "Description" : req.body.description,
+    "Price": req.body.price,
+    "Author": req.body.author,
+    "Genre" : req.body.genre
   });
 
   book.update({ _id: id}, books, (err) => {
